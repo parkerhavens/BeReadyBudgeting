@@ -1,0 +1,16 @@
+{% extends "walkthrough/base.html" %}
+{% block content %}
+    <h1>Welcome to Be Ready Budgeting!</h1>
+    <p>When you are going through a major life change, it is easy to miss import items you must save and budget for ahead of time. Be Ready Budgeting can help you by giving recommendations about budget ratios and potentially forgetten line items. You can then take this information to create more realistic and maintainable budgets.</p>
+    {% if user.is_authenticated %}
+        <div class="border-top pt-3">
+                <a clas="button" href="{% url 'budget' %}">Begin Walkthrough</a>
+        </div>
+    {% else %}
+        <p>Before we can take you through the walkthrough, you must register or log in. </p>
+        <div class="border-top pt-3">
+                <a clas="button" href="{% url 'login' %}">Log In<br></a>
+                <a clas="button" href="{% url 'register' %}">Register</a>
+        </div>
+    {% endif %}
+{% endblock content %}

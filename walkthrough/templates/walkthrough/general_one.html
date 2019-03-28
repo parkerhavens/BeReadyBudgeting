@@ -1,0 +1,10 @@
+{% extends "walkthrough/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1>General Info</h1>
+<div class="border-top pt-3">
+        <a clas="button" href="{% url 'walkthrough-graduation' %}">Back<br></a>
+        <a clas="button" href="{% url 'walkthrough-general_one' %}">Next</a>
+</div>
+{% endblock content %}
+

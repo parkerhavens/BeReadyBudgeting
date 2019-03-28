@@ -1,0 +1,20 @@
+{% extends "walkthrough/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1>Marriage</h1>
+<div class="border-top pt-3">
+    <!-- Back -->
+    {% if user.budget.Purchasing_A_Home %}
+        <a clas="button" href="{% url 'walkthrough-home_purchase' %}">Back<br></a>
+    {% else %}
+        <a clas="button" href="{% url 'budget' %}">Back<br></a>
+    {% endif %}
+    <!-- Next -->
+    {% if user.budget.Graduating_College %}
+        <a clas="button" href="{% url 'walkthrough-graduation' %}">Next</a>
+    {% else %}
+        <a clas="button" href="{% url 'walkthrough-general_one' %}">Next</a>
+    {% endif %}
+</div>
+{% endblock content %}
+

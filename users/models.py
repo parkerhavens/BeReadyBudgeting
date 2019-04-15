@@ -151,7 +151,7 @@ class DetailedBudget(models.Model):
         return round(ratio * 100, 2)
 
     def recreation_diff(self):
-        max = 15
+        max = 10
 
         Income_Per_Month = self.user.budget.Income_Per_Year / 12
         ratio = self.Recreation / Income_Per_Month
@@ -164,7 +164,7 @@ class DetailedBudget(models.Model):
         return round(ratio * 100, 2)
 
     def personal_diff(self):
-        max = 15
+        max = 10
 
         Income_Per_Month = self.user.budget.Income_Per_Year / 12
         ratio = self.Personal_Spending / Income_Per_Month
@@ -177,7 +177,7 @@ class DetailedBudget(models.Model):
         return round(ratio * 100, 2)
 
     def misc_diff(self):
-        max = 15
+        max = 10
 
         Income_Per_Month = self.user.budget.Income_Per_Year / 12
         ratio = self.Miscellaneous / Income_Per_Month

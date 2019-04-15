@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 from PIL import Image
 import pycountry
 
@@ -36,7 +37,7 @@ class Budget(models.Model):
     )
 
     Country = models.CharField(max_length=100, choices=COUNTRY_CHOICES, default=USA)
-    Income_Per_Year = models.IntegerField(default=0)
+    Income_Per_Year = models.IntegerField(default=0, validators=[MinValueValidator(0)])
 
     Purchasing_A_Home = models.BooleanField(default=False)
     Getting_Married = models.BooleanField(default=False)
@@ -55,17 +56,20 @@ class Budget(models.Model):
 class DetailedBudget(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    Giving = models.IntegerField(default=0)
-    Saving = models.IntegerField(default=0)
-    Food = models.IntegerField(default=0)
-    Utilities = models.IntegerField(default=0)
-    Housing = models.IntegerField(default=0)
-    Transportation = models.IntegerField(default=0)
-    Health = models.IntegerField(default=0)
-    Insurance = models.IntegerField(default=0)
-    Recreation = models.IntegerField(default=0)
-    Personal_Spending = models.IntegerField(default=0)
-    Miscellaneous = models.IntegerField(default=0)
+    Giving = models.IntegerField(default=0, validators=[MinValueValidator(0)])
+    Saving = models.IntegerField(default=0, validators=[MinValueValidator(0)])
+    Food = models.IntegerField(default=0, validators=[MinValueValidator(0)])
+    Utilities = models.IntegerField(default=0, validators=[MinValueValidator(0)])
+    Housing = models.IntegerField(default=0, validators=[MinValueValidator(0)])
+    Transportation = models.IntegerField(default=0, validators=[MinValueValidator(0)])
+    Health = models.IntegerField(default=0, validators=[MinValueValidator(0)])
+    Insurance = models.IntegerField(default=0, validators=[MinValueValidator(0)])
+    Recreation = models.IntegerField(default=0, validators=[MinValueValidator(0)])
+    Personal_Spending = models.IntegerField(default=0, validators=[MinValueValidator(0)])
+    Miscellaneous = models.IntegerField(default=0, validators=[MinValueValidator(0)])
+
+    def get_income(self):
+        return self.user.budget.Income_Per_Year
 
     def food_percent(self):
         Income_Per_Month = self.user.budget.Income_Per_Year / 12

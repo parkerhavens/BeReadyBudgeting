@@ -4,60 +4,63 @@
 <h1>Detailed Results</h1>
 
 <div class="border-top pt-3">
-    {% if user.detailedbudget.food_diff <= 0 %}
-        <p><font color="green">{{ user.detailedbudget.food_percent }}% of your income was spent on food. This was less than the reccomended maximum by {{ user.detailedbudget.food_diff }}%</font></p>
+    {% if user.detailedbudget.get_income == 0 %}
+            <p>A breakdown cannot be created because you have entered your income as ${{ user.detailedbudget.get_income }}</p>
     {% else %}
-        <p><font color="red">{{ user.detailedbudget.food_percent }}% of your income was spent on food. This was more than the reccomended maximum by {{ user.detailedbudget.food_diff }}%</font></p>
-    {% endif%}
+       {% if user.detailedbudget.food_diff <= 0 %}
+                <p><font color="green">{{ user.detailedbudget.food_percent }}% of your income was spent on food. This was less than the reccomended maximum by {{ user.detailedbudget.food_diff }}%</font></p>
+            {% else %}
+                <p><font color="red">{{ user.detailedbudget.food_percent }}% of your income was spent on food. This was more than the reccomended maximum by {{ user.detailedbudget.food_diff }}%</font></p>
+            {% endif%}
 
-    {% if user.detailedbudget.utilities_diff <= 0 %}
-        <p><font color="green">{{ user.detailedbudget.utilities_percent }}% of your income was spent on utilities. This was less than the reccomended maximum by {{ user.detailedbudget.utilities_diff }}%</font></p>
-    {% else %}
-        <p><font color="red">{{ user.detailedbudget.utilities_percent }}% of your income was spent on utilities. This was more than the reccomended maximum by {{ user.detailedbudget.utilities_diff }}%</font></p>
-    {% endif%}
+            {% if user.detailedbudget.utilities_diff <= 0 %}
+                <p><font color="green">{{ user.detailedbudget.utilities_percent }}% of your income was spent on utilities. This was less than the reccomended maximum by {{ user.detailedbudget.utilities_diff }}%</font></p>
+            {% else %}
+                <p><font color="red">{{ user.detailedbudget.utilities_percent }}% of your income was spent on utilities. This was more than the reccomended maximum by {{ user.detailedbudget.utilities_diff }}%</font></p>
+            {% endif%}
 
-    {% if user.detailedbudget.housing_diff <= 0 %}
-        <p><font color="green">{{ user.detailedbudget.housing_percent }}% of your income was spent on housing. This was less than the reccomended maximum by {{ user.detailedbudget.housing_diff }}%</font></p>
-    {% else %}
-        <p><font color="red">{{ user.detailedbudget.housing_percent }}% of your income was spent on housing. This was more than the reccomended maximum by {{ user.detailedbudget.housing_diff }}%</font></p>
-    {% endif%}
+            {% if user.detailedbudget.housing_diff <= 0 %}
+                <p><font color="green">{{ user.detailedbudget.housing_percent }}% of your income was spent on housing. This was less than the reccomended maximum by {{ user.detailedbudget.housing_diff }}%</font></p>
+            {% else %}
+                <p><font color="red">{{ user.detailedbudget.housing_percent }}% of your income was spent on housing. This was more than the reccomended maximum by {{ user.detailedbudget.housing_diff }}%</font></p>
+            {% endif%}
 
-    {% if user.detailedbudget.transportation_diff <= 0 %}
-        <p><font color="green">{{ user.detailedbudget.transportation_percent }}% of your income was spent on transportation. This was less than the reccomended maximum by {{ user.detailedbudget.transportation_diff }}%</font></p>
-    {% else %}
-        <p><font color="red">{{ user.detailedbudget.transportation_percent }}% of your income was spent on transportation. This was more than the reccomended maximum by {{ user.detailedbudget.transportation_diff }}%</font></p>
-    {% endif%}
+            {% if user.detailedbudget.transportation_diff <= 0 %}
+                <p><font color="green">{{ user.detailedbudget.transportation_percent }}% of your income was spent on transportation. This was less than the reccomended maximum by {{ user.detailedbudget.transportation_diff }}%</font></p>
+            {% else %}
+                <p><font color="red">{{ user.detailedbudget.transportation_percent }}% of your income was spent on transportation. This was more than the reccomended maximum by {{ user.detailedbudget.transportation_diff }}%</font></p>
+            {% endif%}
 
-    {% if user.detailedbudget.health_diff <= 0 %}
-        <p><font color="green">{{ user.detailedbudget.health_percent }}% of your income was spent on health. This was less than the reccomended maximum by {{ user.detailedbudget.health_diff }}%</font></p>
-    {% else %}
-        <p><font color="red">{{ user.detailedbudget.health_percent }}% of your income was spent on health. This was more than the reccomended maximum by {{ user.detailedbudget.health_diff }}%</font></p>
-    {% endif%}
+            {% if user.detailedbudget.health_diff <= 0 %}
+                <p><font color="green">{{ user.detailedbudget.health_percent }}% of your income was spent on health. This was less than the reccomended maximum by {{ user.detailedbudget.health_diff }}%</font></p>
+            {% else %}
+                <p><font color="red">{{ user.detailedbudget.health_percent }}% of your income was spent on health. This was more than the reccomended maximum by {{ user.detailedbudget.health_diff }}%</font></p>
+            {% endif%}
 
-    {% if user.detailedbudget.insurance_diff <= 0 %}
-        <p><font color="green">{{ user.detailedbudget.insurance_percent }}% of your income was spent on insurance. This was less than the reccomended maximum by {{ user.detailedbudget.insurance_diff }}%</font></p>
-    {% else %}
-        <p><font color="red">{{ user.detailedbudget.insurance_percent }}% of your income was spent on insurance. This was more than the reccomended maximum by {{ user.detailedbudget.insurance_diff }}%</font></p>
-    {% endif%}
+            {% if user.detailedbudget.insurance_diff <= 0 %}
+                <p><font color="green">{{ user.detailedbudget.insurance_percent }}% of your income was spent on insurance. This was less than the reccomended maximum by {{ user.detailedbudget.insurance_diff }}%</font></p>
+            {% else %}
+                <p><font color="red">{{ user.detailedbudget.insurance_percent }}% of your income was spent on insurance. This was more than the reccomended maximum by {{ user.detailedbudget.insurance_diff }}%</font></p>
+            {% endif%}
 
-    {% if user.detailedbudget.recreation_diff <= 0 %}
-        <p><font color="green">{{ user.detailedbudget.recreation_percent }}% of your income was spent on recreation. This was less than the reccomended maximum by {{ user.detailedbudget.recreation_diff }}%</font></p>
-    {% else %}
-        <p><font color="red">{{ user.detailedbudget.recreation_percent }}% of your income was spent on recreation. This was more than the reccomended maximum by {{ user.detailedbudget.recreation_diff }}%</font></p>
-    {% endif%}
+            {% if user.detailedbudget.recreation_diff <= 0 %}
+                <p><font color="green">{{ user.detailedbudget.recreation_percent }}% of your income was spent on recreation. This was less than the reccomended maximum by {{ user.detailedbudget.recreation_diff }}%</font></p>
+            {% else %}
+                <p><font color="red">{{ user.detailedbudget.recreation_percent }}% of your income was spent on recreation. This was more than the reccomended maximum by {{ user.detailedbudget.recreation_diff }}%</font></p>
+            {% endif%}
 
-    {% if user.detailedbudget.personal_diff <= 0 %}
-        <p><font color="green">{{ user.detailedbudget.personal_percent }}% of your income was spent on personal spending. This was less than the reccomended maximum by {{ user.detailedbudget.personal_diff }}%</font></p>
-    {% else %}
-        <p><font color="red">{{ user.detailedbudget.personal_percent }}% of your income was spent on personal spending. This was more than the reccomended maximum by {{ user.detailedbudget.personal_diff }}%</font></p>
-    {% endif%}
+            {% if user.detailedbudget.personal_diff <= 0 %}
+                <p><font color="green">{{ user.detailedbudget.personal_percent }}% of your income was spent on personal spending. This was less than the reccomended maximum by {{ user.detailedbudget.personal_diff }}%</font></p>
+            {% else %}
+                <p><font color="red">{{ user.detailedbudget.personal_percent }}% of your income was spent on personal spending. This was more than the reccomended maximum by {{ user.detailedbudget.personal_diff }}%</font></p>
+            {% endif%}
 
-    {% if user.detailedbudget.misc_diff <= 0 %}
-        <p><font color="green">{{ user.detailedbudget.misc_percent }}% of your income was spent on miscellaneous spending. This was less than the reccomended maximum by {{ user.detailedbudget.misc_diff }}%</font></p>
-    {% else %}
-        <p><font color="red">{{ user.detailedbudget.misc_percent }}% of your income was spent on miscellaneous spending. This was more than the reccomended maximum by {{ user.detailedbudget.misc_diff }}%</font></p>
-    {% endif%}
-
+            {% if user.detailedbudget.misc_diff <= 0 %}
+                <p><font color="green">{{ user.detailedbudget.misc_percent }}% of your income was spent on miscellaneous spending. This was less than the reccomended maximum by {{ user.detailedbudget.misc_diff }}%</font></p>
+            {% else %}
+                <p><font color="red">{{ user.detailedbudget.misc_percent }}% of your income was spent on miscellaneous spending. This was more than the reccomended maximum by {{ user.detailedbudget.misc_diff }}%</font></p>
+            {% endif %}
+        {% endif %}
 </div>
 
 

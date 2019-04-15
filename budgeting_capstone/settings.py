@@ -26,7 +26,7 @@ SECRET_KEY = 'D4JBJ97mNqDdUgRRkdG039KgXmMICd9uDUEbIiF6'
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
 
-ALLOWED_HOSTS = ['bereadybudgeting.us-east-2.elasticbeanstalk.com/', 'localhost']
+ALLOWED_HOSTS = ['.herokuapp.com', 'localhost']
 
 
 # Application definition

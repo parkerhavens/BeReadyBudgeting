@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, BudgetRegisterForm, BudgetUpdateForm
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, BudgetRegisterForm, BudgetUpdateForm, DetailedBudgetUpdateForm, DetailedBudgetRegisterForm
 
 
 def register(request):
@@ -53,7 +53,7 @@ def budget(request):
             elif request.user.budget.Graduating_College:
                 return redirect('walkthrough-graduation')
             else:
-                return redirect('walkthrough-general_one')
+                return redirect('detailedbudget')
 
     else:
         form = BudgetUpdateForm(instance=request.user.budget)
@@ -62,3 +62,28 @@ def budget(request):
     }
 
     return render(request, 'users/budget.html', context)
+
+
+@login_required
+def detailedbudget(request):
+    if request.method == 'POST':
+        form = DetailedBudgetUpdateForm(request.POST, request.FILES, instance=request.user.detailedbudget)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Your detailed budget has been updated!')
+
+            return redirect('detailedresults')
+
+    else:
+        form = DetailedBudgetUpdateForm(instance=request.user.detailedbudget)
+    context = {
+        'form': form
+    }
+
+    return render(request, 'users/detailed_budget.html', context)
+
+
+@login_required
+def detailedresults(request):
+    return render(request, 'users/detailed_results.html', {'title': 'Detailed Results'})

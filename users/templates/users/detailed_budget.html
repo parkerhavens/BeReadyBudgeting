@@ -1,0 +1,31 @@
+{% extends "walkthrough/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+      <form method="POST" enctype="form-data">
+          {% csrf_token %}
+          <fieldset class="form-group">
+              <legend class="border-bottom mb-4">Detailed Budget</legend>
+              <p>Please enter how much you spent last month on each category</p>
+              <p>Mint is a helpful, free service to get a good idea of your spending. If you would like to use it, please
+                <a href="https://www.mint.com">open this link in a new tab</a>
+                and follow the instructions you find there.<br><br>
+                Your total income per month is ${{ user.budget.income_per_month }}
+              </p>
+              {{ form|crispy }}
+          </fieldset>
+          <div class="form-group">
+              <button class="btn btn-outline-info" type="submit">Set</button>
+          </div>
+        </form>
+    </div>
+    {% if user.budget.Graduating_College %}
+        <a clas="button" href="{% url 'walkthrough-graduation' %}">Back<br></a>
+    {% elif user.budget.Getting_Married %}
+        <a clas="button" href="{% url 'walkthrough-marriage' %}">Back<br></a>
+    {% elif user.budget.Purchasing_A_Home %}
+        <a clas="button" href="{% url 'walkthrough-home_purchase' %}">Back<br></a>
+    {% else %}
+        <a clas="button" href="{% url 'budget' %}">Back<br></a>
+    {% endif %}
+{% endblock content %}

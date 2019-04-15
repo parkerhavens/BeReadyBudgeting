@@ -24,5 +24,10 @@ def marriage(request):
 def graduation(request):
     return render(request, 'walkthrough/graduation.html', {'title': 'Graduation'})
 
+
 def general_one(request):
     return render(request, 'walkthrough/general_one.html', {'title': 'General One'})
+
+
+def helpful(request):
+    return render(request, 'walkthrough/helpful.html', {'title': 'Helpful'})

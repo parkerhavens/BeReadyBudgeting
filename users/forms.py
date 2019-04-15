@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Profile, Budget
+from .models import Profile, Budget, DetailedBudget
 
 
 class UserRegisterForm(UserCreationForm):
@@ -29,10 +29,22 @@ class ProfileUpdateForm(forms.ModelForm):
 class BudgetRegisterForm(forms.ModelForm):
     class Meta:
         model = Budget
-        fields = ['Country', 'Income_Per_Year', 'Housing_Cost_Per_Month', 'Debt_Payments_Each_Month', 'Purchasing_A_Home', 'Getting_Married', 'Graduating_College']
+        fields = ['Country', 'Income_Per_Year', 'Purchasing_A_Home', 'Getting_Married', 'Graduating_College']
 
 
 class BudgetUpdateForm(forms.ModelForm):
     class Meta:
         model = Budget
-        fields = ['Country', 'Income_Per_Year', 'Housing_Cost_Per_Month', 'Debt_Payments_Each_Month', 'Purchasing_A_Home', 'Getting_Married', 'Graduating_College']
+        fields = ['Country', 'Income_Per_Year', 'Purchasing_A_Home', 'Getting_Married', 'Graduating_College']
+
+
+class DetailedBudgetRegisterForm(forms.ModelForm):
+    class Meta:
+        model = DetailedBudget
+        fields = ['Giving', 'Saving', 'Food', 'Utilities', 'Housing', 'Transportation', 'Health', 'Insurance', 'Recreation', 'Personal_Spending', 'Miscellaneous']
+
+
+class DetailedBudgetUpdateForm(forms.ModelForm):
+    class Meta:
+        model = DetailedBudget
+        fields = ['Giving', 'Saving', 'Food', 'Utilities', 'Housing', 'Transportation', 'Health', 'Insurance', 'Recreation', 'Personal_Spending', 'Miscellaneous']

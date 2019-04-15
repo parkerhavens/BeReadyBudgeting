@@ -20,12 +20,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'z9f!1shmtw+o35a81n-&r528b==371d9u30cbiuo8%g0sj7on$'
+#SECRET_KEY = 'z9f!1shmtw+o35a81n-&r528b==371d9u30cbiuo8%g0sj7on$'
+SECRET_KEY = 'D4JBJ97mNqDdUgRRkdG039KgXmMICd9uDUEbIiF6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
 
-ALLOWED_HOSTS = ['django-env.v9vnpcdtgw.us-west-2.elasticbeanstalk.com', 'localhost']
+ALLOWED_HOSTS = ['bereadybudgeting.us-east-2.elasticbeanstalk.com/', 'localhost']
 
 
 # Application definition
@@ -70,7 +71,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'budgeting_capstone.wsgi.application'
+#WSGI_APPLICATION = 'django_capstone.wsgi.application'
 
 
 # Database

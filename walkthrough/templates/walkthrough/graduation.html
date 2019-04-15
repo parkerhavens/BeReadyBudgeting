@@ -1,18 +1,44 @@
 {% extends "walkthrough/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
+
 <h1>College Graduation</h1>
+<div class="border-top pt-3">
+    <p>
+        Here are some tips to keep in mind when graduating college!<br><br>
+        <b>1) Your reaccuring expeneses can matter more than your one time expenses<br></b>
+        <small>When moving into the adult world, there are many costs you have to pay on a monthly basis. These include car payments, utilities, cell phone plans, insurance, etc. Investing time and energy into reducing these will pay dividends every month.</small><br><br>
+
+        <b>2) NEVER miss any payments<br></b>
+        <small>The first thing you should do every month is to allot your money to the debts that you owe. Any missed payments will start you down a path you do not want to go down. Interest payments and late fees will compound on eachother and create a much larger hurdle.</small><br><br>
+
+        <b>3) Take advantage of your company's 401k plan<br></b>
+        <small>If your company offers a match on your 401k it should be your priority to take full advantage of it. If they do a full match, you are getting a 100% return on that money.</small><br><br>
+
+        <b>4) Build an emergency fund of 3-6 months of expenses<br></b>
+        <small>This will give you a buffer so that when large expenses arrive unexpectedly, you do not have to go into debt to cover them. The emergency fund will give you more confidence to take risks to earn more income or make it through difficult times.</small><br><br>
+
+        <b>5) Save 20% of your income<br></b>
+        <small>Make it work. It won't be easy and it will be tempting to splurge using your new-found adult income. It will, however, be worth it. This amount will allow you build your emergency fund, pay off your debts, and save for retirement.</small><br><br>
+
+        <b>6) Find low-cost entertainment<br></b>
+        <small>In college, there are many opportunites to take part in free activities. Finding ways to make your entertainment affordable will allow you do stay on top of your bills and stress free. Some good examples of low-cost entertainment are cooking (saving you money on eating out), at-home movie nights, host video game tournaments with your friends, or start playing D&D. There are many gerat options if you look.</small><br><br>
+
+        <b>7) In summary, work put in up front pays for itself many times<br></b>
+        <small>If a ship is one degree off in its calculations, it will never get to its desination. It is important to start your adult life with the right trajectory. Put the work in up front, do your research, and it will steer you away from a lot of stress later.</small><br>
+    </p>
+</div>
 <div class="border-top pt-3">
     <!-- Back -->
     {% if user.budget.Getting_Married %}
-        <a clas="button" href="{% url 'walkthrough-marriage' %}">Back<br></a>
+        <a class="backbutton" href="{% url 'walkthrough-marriage' %}">Back<br></a>
     {% elif user.budget.Purchasing_A_Home %}
-        <a clas="button" href="{% url 'walkthrough-home_purchase' %}">Back<br></a>
+        <a class="button" href="{% url 'walkthrough-home_purchase' %}">Back<br></a>
     {% else %}
-        <a clas="button" href="{% url 'budget' %}">Back<br></a>
+        <a class="button" href="{% url 'budget' %}">Back<br></a>
     {% endif %}
     <!-- Next -->
-    <a clas="button" href="{% url 'walkthrough-general_one' %}">Next</a>
+    <a class="button" href="{% url 'detailedbudget' %}">Next</a>
 </div>
 {% endblock content %}
 

@@ -31,3 +31,7 @@ def general_one(request):
 
 def helpful(request):
     return render(request, 'walkthrough/helpful.html', {'title': 'Helpful'})
+
+
+def thank_you(request):
+    return render(request, 'walkthrough/thank_you.html', {'title': 'Thank You'})

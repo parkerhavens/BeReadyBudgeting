@@ -1,0 +1,15 @@
+{% extends "walkthrough/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1>Helpful Links</h1>
+<div class="border-top pt-3">
+    <p></p>
+</div>
+<div class="border-top pt-3">
+    <!-- Back -->
+    <a clas="button" href="{% url 'walkthrough-helpful' %}">Back<br></a>
+    <!-- Next -->
+    <a clas="button" href="{% url 'walkthrough-home' %}">Home<br></a>
+</div>
+{% endblock content %}
+
